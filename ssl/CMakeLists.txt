@@ -45,7 +45,16 @@ include_directories( BEFORE SYSTEM
 
 add_library( ssl ${LIBSRC} )
 
-target_include_directories( ssl PUBLIC ${PROJECT_BINARY_DIR}/include )
+# Add the private include directories
+target_include_directories(ssl
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/include)
+
+# Add the public include directories
+target_include_directories(ssl
+        PUBLIC
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 target_link_libraries( ssl crypto )
 
