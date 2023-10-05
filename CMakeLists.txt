@@ -25,8 +25,8 @@
 # SOFTWARE.
 
 set( CMAKE_LEGACY_CYGWIN_WIN32 0 )
-project( openssl )
 cmake_minimum_required( VERSION 3.1.0 )
+project( openssl )
 
 set( CMAKE_DISABLE_SOURCE_CHANGES ON )
 set( CMAKE_DISABLE_IN_SOURCE_BUILD ON )
